@@ -6,6 +6,19 @@ reproducible pipeline, comparing metrics and running experiments.
 
 📖 **Step-by-step article:** [DVC tutorial: version data, pipelines and ML experiments](https://abhishekkothari.in/blog/dvc-tutorial-data-version-control-for-data-scientists.html)
 
+> [!NOTE]
+> **Looking for the DVC config?** `main` is deliberately the *before* state: a plain Git project, so you can
+> run `dvc init` yourself in step 1 of the article. The finished DVC setup lives on the
+> [`solution`](https://github.com/datsabk/dvc-tutorial/tree/solution) branch:
+>
+> | file | what it does |
+> |---|---|
+> | [`.dvc/config`](https://github.com/datsabk/dvc-tutorial/blob/solution/.dvc/config) | default remote (public, read-only `storage` branch) |
+> | [`data/raw/customers.csv.dvc`](https://github.com/datsabk/dvc-tutorial/blob/solution/data/raw/customers.csv.dvc) | pointer to the versioned dataset (md5 + size) |
+> | [`dvc.yaml`](https://github.com/datsabk/dvc-tutorial/blob/solution/dvc.yaml) | the prepare → train → evaluate pipeline, metrics and plots |
+> | [`dvc.lock`](https://github.com/datsabk/dvc-tutorial/blob/solution/dvc.lock) | hashes of every stage's inputs and outputs |
+> | [`metrics.json`](https://github.com/datsabk/dvc-tutorial/blob/solution/metrics.json) | metrics of the promoted `class_weight=balanced` model |
+
 ## What's inside
 
 ```
