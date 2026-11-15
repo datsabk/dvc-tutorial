@@ -38,13 +38,13 @@ stages:
         train:
           n_estimators: 100
           max_depth: 6
-          class_weight:
+          class_weight: balanced
           seed: 42
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: e94d499c60cfb6286c322d963822f1d5
-      size: 788096
+      md5: aa528a35db2416a74abf93233e2489e6
+      size: 838700
   evaluate:
     cmd: python src/evaluate.py models/model.pkl data/prepared/test.csv
     deps:
@@ -54,8 +54,8 @@ stages:
       size: 16209
     - path: models/model.pkl
       hash: md5
-      md5: e94d499c60cfb6286c322d963822f1d5
-      size: 788096
+      md5: aa528a35db2416a74abf93233e2489e6
+      size: 838700
     - path: src/evaluate.py
       hash: md5
       md5: beb0a5beae5dbec48ea99fabcbf3e2c1
@@ -63,13 +63,13 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 7ba217e7f67e6fbb87987248c8448e07
-      size: 103
+      md5: c38e82f6d98677d9cc18a54f98d08e10
+      size: 101
     - path: plots/confusion.csv
       hash: md5
-      md5: 6ef9be28ae3dc10403af919701185493
+      md5: fde9dde71cdd990fec07e44fa5c9ebd4
       size: 2417
     - path: plots/roc.csv
       hash: md5
-      md5: fa0935b6649cd541fc6f00e1dcc43bb4
-      size: 2834
+      md5: 92bbee5644ef44b3a495fbd8af74eb30
+      size: 2689
