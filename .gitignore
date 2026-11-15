@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local DVC remote used in the tutorial (lives outside the repo, but just in case)
+dvc-storage/
