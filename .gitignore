@@ -6,3 +6,6 @@ venv/
 
 # Local DVC remote used in the tutorial (lives outside the repo, but just in case)
 dvc-storage/
+
+# HTML rendered by `dvc plots show` / `dvc plots diff`
+dvc_plots/
