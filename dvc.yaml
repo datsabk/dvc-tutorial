@@ -1,0 +1,46 @@
+stages:
+  prepare:
+    cmd: python src/prepare.py data/raw/customers.csv data/prepared
+    deps:
+      - src/prepare.py
+      - data/raw/customers.csv
+    params:
+      - prepare
+    outs:
+      - data/prepared
+
+  train:
+    cmd: python src/train.py data/prepared/train.csv models/model.pkl
+    deps:
+      - src/train.py
+      - data/prepared/train.csv
+    params:
+      - train
+    outs:
+      - models/model.pkl
+
+  evaluate:
+    cmd: python src/evaluate.py models/model.pkl data/prepared/test.csv
+    deps:
+      - src/evaluate.py
+      - models/model.pkl
+      - data/prepared/test.csv
+    metrics:
+      - metrics.json:
+          cache: false
+    plots:
+      - plots/roc.csv:
+          cache: false
+      - plots/confusion.csv:
+          cache: false
+
+plots:
+  - plots/roc.csv:
+      x: fpr
+      y: tpr
+      title: ROC curve
+  - plots/confusion.csv:
+      template: confusion
+      x: actual
+      y: predicted
+      title: Confusion matrix
