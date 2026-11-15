@@ -1,4 +1,4 @@
 [core]
-    remote = localremote
-['remote "localremote"']
-    url = ../../dvc-storage
+    remote = public
+['remote "public"']
+    url = https://raw.githubusercontent.com/datsabk/dvc-tutorial/storage
